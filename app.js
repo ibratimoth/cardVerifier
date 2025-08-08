@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
     res.render('forbidden')
 })
-app.use('/card', cardRoutes);
+app.use('/', cardRoutes);
 
 const PORT = process.env.PORT || 3004;
 const server = app.listen(PORT , () => {
