@@ -26,7 +26,7 @@ window.passTable = null; // global scope
 $(document).ready(function () {
     if (!$.fn.DataTable.isDataTable('#passTable')) {
         window.passTable = $('#passTable').DataTable({
-            pageLength: 5,
+            pageLength: 10,
             responsive: true,
             autoWidth: false,
         });
