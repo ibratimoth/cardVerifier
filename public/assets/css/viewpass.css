@@ -1,0 +1,520 @@
+        /* body {
+            font-family: 'Inter', sans-serif;
+            color: #212529;
+            margin: 0;
+            padding: 2rem;
+            background: #fff;
+        } */
+
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+        }
+
+        /* Header Table Styling - Precise Replication of head.png */
+        .header-main-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            border: 1px solid #000;
+            /* Outer border as shown in sketch */
+        }
+
+        .header-main-table td {
+            padding: 0;
+            /* Control padding within cells */
+            vertical-align: top;
+            border: 1px solid #000;
+            /* Default cell border as shown in sketch */
+        }
+
+        /* Specific cell styling to match head.png */
+        .header-main-table .logo-cell {
+            width: 10%;
+            /* Approximate width for logo column */
+            text-align: center;
+            vertical-align: top;
+            padding: 0.5rem;
+        }
+
+        .header-main-table .doc-ref-cell {
+            width: 40%;
+            /* Approximate width for doc ref column */
+            padding: 0;
+            /* Inner content will control padding */
+        }
+
+        .header-main-table .company-info-cell {
+            width: 40%;
+            /* Approximate width for company info column */
+            padding: 0;
+            /* Inner content will control padding */
+            position: relative;
+            /* For the faint logo */
+        }
+
+        .header-main-table .right-logo-cell {
+            width: 10%;
+            /* Approximate width for right logo column */
+            text-align: center;
+            vertical-align: top;
+            padding: 0.5rem;
+        }
+
+        .header-main-table .address-cell {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
+            padding: 0.5rem 1rem;
+            line-height: 1.3;
+        }
+
+        .header-logo {
+            height: 60px;
+            /* Adjust size to fit sketch */
+            width: auto;
+            display: block;
+            margin: 0 auto;
+            /* Center logo in its cell */
+        }
+
+        .doc-ref-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            /* Ensure content fills cell height */
+        }
+
+        .doc-ref-text-row,
+        .doc-ref-number-row {
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1.2;
+            border-bottom: 1px solid #000;
+            /* Solid border as in sketch */
+            box-sizing: border-box;
+            /* Include padding in height */
+        }
+
+        .doc-ref-number-row {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .doc-ref-sub-table-container {
+            flex-grow: 1;
+            /* Allows it to take remaining space */
+            padding: 0;
+            /* Sub-table handles its own padding */
+        }
+
+        .doc-ref-sub-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .doc-ref-sub-table th,
+        .doc-ref-sub-table td {
+            border: 1px solid #000;
+            /* Solid border as in sketch */
+            padding: 0.25rem 0.5rem;
+            text-align: left;
+        }
+
+        .doc-ref-sub-table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+        }
+
+        .company-info-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* Align left as per sketch */
+            text-align: left;
+            /* Align left as per sketch */
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1.2;
+            height: 100%;
+            justify-content: flex-start;
+            /* Push text to top */
+        }
+
+        .company-info-content p {
+            margin-bottom: 0.25rem;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.5rem;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* New styles for Access Permit Number boxes */
+        .access-permit-boxes-wrapper {
+            display: flex;
+            flex-grow: 1;
+            /* Allows it to take available space */
+            border: 1px solid #000;
+            /* Outer border for the entire series of boxes */
+            border-radius: 5px;
+            /* Rounded corners for the whole container */
+            overflow: hidden;
+            /* Ensures inner borders don't spill */
+            min-height: 2.5rem;
+            /* Ensure boxes have a decent height */
+            align-items: center;
+            /* Vertically center content in boxes */
+        }
+
+        .permit-box-content {
+            flex-grow: 1;
+            /* Each box takes equal space */
+            padding: 0.5rem 0.75rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1rem;
+            border-right: 1px solid #000;
+            /* Vertical lines between boxes */
+            box-sizing: border-box;
+            /* Include padding and border in element's total width and height */
+            min-width: 50px;
+            /* Ensure a minimum width for empty boxes */
+            display: flex;
+            /* Use flex to center content horizontally */
+            justify-content: center;
+            /* Horizontally center content */
+            align-items: center;
+            /* Vertically center content */
+        }
+
+        .permit-box-content:last-child {
+            border-right: none;
+            /* No border on the last box */
+        }
+
+        .form-row .label {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .form-row .value-line {
+            border-bottom: 1px dashed #aaa;
+            flex-grow: 1;
+            min-height: 1.2rem;
+            padding-bottom: 2px;
+        }
+
+        .short-value-line {
+            width: 100px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            margin-left: 0.5rem;
+        }
+
+        .purpose-value-line {
+            min-height: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        th,
+        td {
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f8fafc;
+            font-weight: 600;
+        }
+
+        .table-data-line {
+            border-bottom: 1px dashed #aaa;
+            min-height: 1.2rem;
+            padding-bottom: 2px;
+        }
+
+        .zones-list {
+            margin-top: 1rem;
+        }
+
+        .zones-list div {
+            margin-bottom: 0.5rem;
+        }
+
+        .zones-table {
+            margin-top: 1rem;
+        }
+
+        .signature-group {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .signature-group .label {
+            margin-right: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .signature-line {
+            border-bottom: 1px dashed #aaa;
+            flex-grow: 1;
+            min-height: 1.2rem;
+            padding-bottom: 2px;
+            margin-left: 0.5rem;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            border-top: 1px solid #ccc;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+
+            /* Allow better zooming and scaling */
+            body {
+                font-size: 14px;
+                padding: 0%;
+            }
+
+            /* Center logo and company info in header */
+            /* === Shared table styling === */
+            .header-main-table {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+                border-collapse: collapse;
+                font-size: 12px;
+            }
+
+            .header-main-table tr {
+                display: table-row;
+            }
+
+            /* === Cell default === */
+            .header-main-table td {
+                display: table-cell;
+                vertical-align: top;
+                padding: 6px;
+                border: 1px solid #000;
+                text-align: left;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                white-space: normal;
+            }
+
+            /* === Logo cells === */
+            .header-main-table .logo-cell,
+            .header-main-table .right-logo-cell {
+                width: 12%;
+                text-align: center;
+            }
+
+            .header-main-table .logo-cell img,
+            .header-main-table .right-logo-cell img {
+                max-width: 100%;
+                max-height: 50px;
+                object-fit: contain;
+            }
+
+            /* === Doc reference cell === */
+            .header-main-table .doc-ref-cell {
+                width: 28%;
+                font-weight: normal;
+                font-size: 12px;
+            }
+
+            .header-main-table .doc-ref-cell .label {
+                font-weight: bold;
+                margin-bottom: 4px;
+                display: block;
+            }
+
+            /* === Company Info Cell === */
+            .header-main-table .company-info-cell {
+                width: 48%;
+                text-align: left;
+            }
+
+            .header-main-table .company-info-cell h5 {
+                font-size: 14px;
+                margin: 0 0 4px;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .header-main-table .company-info-cell p {
+                margin: 2px 0;
+                font-size: 12px;
+                line-height: 1.4;
+            }
+
+            /* Prevent page breaks inside critical sections */
+            .form-row {
+                flex-direction: row;
+                /* Override to ensure horizontal layout in print [cite: 35] */
+                align-items: baseline;
+                /* Align items to their baseline for consistent appearance [cite: 35] */
+                flex-wrap: wrap;
+                /* Allow items to wrap if needed [cite: 35] */
+            }
+
+            .form-row .label {
+                margin-bottom: 0;
+                /* Remove the bottom margin that was added for stacked layout [cite: 78] */
+                margin-right: 0.5rem;
+                /* Re-add some right margin for spacing between label and value [cite: 51] */
+            }
+
+            .form-row .value-line,
+            .short-value-line {
+                width: auto;
+                /* Allow the value lines to take natural width based on content and flex-grow [cite: 52, 53] */
+                flex-grow: 1;
+                /* Ensure they grow to fill available space horizontally [cite: 52] */
+                margin-left: 0;
+                /* Remove left margin if it was added for stacking [cite: 79] */
+            }
+
+            /* Adjust the specific short-value-line if needed to ensure proper spacing when side-by-side */
+            .short-value-line {
+                flex-grow: 0;
+                /* For these specific short lines, you might want to control their width more precisely [cite: 53] */
+                flex-shrink: 0;
+                /* Prevent shrinking [cite: 53] */
+                width: 100px;
+                /* Example fixed width, adjust as necessary [cite: 53] */
+                margin-left: 0.5rem;
+                /* Add margin if items are side-by-side [cite: 53] */
+            }
+
+
+            /* Stack access permit boxes vertically */
+            .access-permit-boxes-wrapper {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .permit-box-content {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #000;
+                margin-bottom: 0.5rem;
+                padding: 0.5rem 0;
+            }
+
+            .permit-box-content:last-child {
+                border-bottom: none;
+            }
+
+            /* Signature section layout on small screens */
+            .signature-group {
+                flex-direction: row;
+                /* Ensure horizontal layout for signatures in print [cite: 62] */
+                align-items: baseline;
+                flex-wrap: wrap;
+            }
+
+            .signature-group .label {
+                margin-bottom: 0;
+                margin-right: 0.5rem;
+            }
+
+            .signature-line {
+                width: auto;
+                flex-grow: 1;
+                margin-left: 0.5rem;
+            }
+
+            /* Table responsiveness: scrollable if wide */
+            table {
+                display: block;
+                width: 100%;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            /* .zones-table,
+            .zones-table thead,
+            .zones-table tbody,
+            .zones-table tr,
+            .zones-table td,
+            .zones-table th {
+                display: block;
+            }
+
+            .zones-table tr {
+                margin-bottom: 1rem;
+            }
+
+            .zones-table td,
+            .zones-table th {
+                text-align: left;
+                padding-left: 0;
+                border: none;
+            } */
+
+            /* Footer center alignment */
+            .footer {
+                text-align: center;
+            }
+
+            .footer p {
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Card padding for smaller screens */
+            .card.card-preview {
+                padding: 0.5rem !important;
+            }
+
+            /* Horizontal timeline responsiveness if present */
+            .timeline-container {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .timeline-step {
+                width: 100%;
+                text-align: center;
+            }
+        }

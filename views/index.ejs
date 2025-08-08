@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <link rel="shortcut icon" href="/images/cardifylogo2.png">
+    <title>Cardify</title>
+    <link rel="stylesheet" href="/assets/css/dashlitee1e3.css?ver=3.2.4">
+    <link id="skin-default" rel="stylesheet" href="/assets/css/themee1e3.css?ver=3.2.4">
+    <link rel="stylesheet" href="/assets/css/style1.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91615293-4"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-91615293-4');</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body class="nk-body bg-lighter npc-general has-sidebar ">
+    <div class="nk-app-root">
+        <div class="nk-main ">
+            <%-include('sidebar.ejs')-%>
+                <div class="nk-wrap ">
+                    <%-include('header.ejs')-%>
+                        <div class="nk-content ">
+                            <div class="container-fluid">
+                                <div class="nk-content-inner">
+                                    <div class="nk-content-body">
+                                        <div class="nk-block-head nk-block-head-sm">
+                                            <div class="nk-block-between">
+                                                <div class="nk-block-head-content">
+                                                    <h3 class="nk-block-title page-title">Invitations Overview</h3>
+                                                    <div class="nk-block-des text-soft">
+                                                        <!-- <p>Welcome to N-VMS Template.</p> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nk-block nk-block-lg">
+                                            <div class="card card-bordered card-preview">
+                                                <div class="card-inner">
+                                                    <table id="requestsTable"
+                                                        class="display nowrap nk-tb-list nk-tb-ulist">
+                                                        <thead>
+                                                            <tr class="nk-tb-item nk-tb-head">
+                                                                <th class="nk-tb-col"><span class="sub-text">S/N</span>
+                                                                </th>
+                                                                <th class="nk-tb-col"><span class="sub-text">Name</span>
+                                                                </th>
+                                                                <th class="nk-tb-col"><span class="sub-text">Phone
+                                                                        Number</span></th>
+                                                                <th class="nk-tb-col"><span
+                                                                        class="sub-text">Status</span></th>
+                                                                <th class="nk-tb-col"><span
+                                                                        class="sub-text">Scanned</span></th>
+                                                                <th class="nk-tb-col"><span class="sub-text">Card
+                                                                        no</span></th>
+                                                                <th class="nk-tb-col nk-tb-col-tools text-end"></th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% requests.forEach((req, index)=> { %>
+                                                                <tr class="nk-tb-item">
+                                                                    <td class="nk-tb-col sn-col">
+                                                                        <%= index + 1 %>
+                                                                    </td>
+                                                                    <td class="nk-tb-col">
+                                                                        <%= req.name %>
+                                                                    </td>
+                                                                    <td class="nk-tb-col"
+                                                                        data-ref="<%= req.reference_no %>">
+                                                                        <%= req.phone_number%>
+                                                                    </td>
+
+
+
+                                                                    <td class="nk-tb-col">
+                                                                        <span class="tb-status badge <%=
+        req.status === 1 ? 'text-success' :
+        req.status === 2 ? 'text-info' :
+        req.status === 'pending' ? 'text-warning' :
+        req.status === 'processing' ? 'text-info' :
+        req.status === 'approved' ? 'text-success' :
+        'text-danger' %>">
+                                                                            <% if (req.status===1) { %>
+                                                                                Single
+                                                                                <% } else if (req.status===2) { %>
+                                                                                    Double
+                                                                                    <% } else { %>
+                                                                                        <%= req.status.charAt(0).toUpperCase()
+                                                                                            + req.status.slice(1) %>
+                                                                                            <% } %>
+                                                                        </span>
+                                                                    </td>
+                                                                    <td class="nk-tb-col">
+                                                                        <%= req.scanned === null ? 'No' : req.scanned %>
+                                                                    </td>
+                                                                    <td class="nk-tb-col">
+                                                                        <%= req.id %>
+                                                                    </td>
+
+                                                                    <td class="nk-tb-col nk-tb-col-tools">
+                                                                        <ul class="nk-tb-actions gx-1">
+                                                                            <li>
+                                                                                <div class="drodown dropstart">
+                                                                                    <!-- flipped to avoid clipping -->
+                                                                                    <a href="#"
+                                                                                        class="dropdown-toggle btn btn-icon btn-trigger"
+                                                                                        data-bs-toggle="dropdown">
+                                                                                        <em
+                                                                                            class="icon ni ni-more-h"></em>
+                                                                                    </a>
+                                                                                    <div
+                                                                                        class="dropdown-menu dropdown-menu-end">
+                                                                                        <ul
+                                                                                            class="link-list-opt no-bdr">
+                                                                                            
+                                                                                            <li>
+                                                                                                <a href="#"
+                                                                                                    onclick="updateRequest('<%= req.id %>'); return false;">
+                                                                                                    <em
+                                                                                                        class="icon ni ni-na"></em><span>Update Card</span>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </td>
+                                                                </tr>
+                                                                <% }) %>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;"></div>
+                        <%-include('footer.ejs')%>
+                </div>
+        </div>
+    </div>
+
+    <%-include('right-side.ejs')%>
+        <script src="/assets/js/bundlee1e3.js?ver=3.2.4"></script>
+        <script src="/assets/js/scriptse1e3.js?ver=3.2.4"></script>
+        <script src="/assets/js/demo-settingse1e3.js?ver=3.2.4"></script>
+        <script src="/assets/js/charts/gd-defaulte1e3.js?ver=3.2.4"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/assets/js/dashboard.js"></script>
+        <script src="/assets/js/timeout.js"></script>
+</body>
+
+</html>
