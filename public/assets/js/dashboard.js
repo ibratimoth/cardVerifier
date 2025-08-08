@@ -83,7 +83,7 @@ function updateRequest(cardId) {
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                url: `/card/${cardId}`,
+                url: `/${cardId}`,
                 method: 'PATCH',
                 success: function (response) {
 
@@ -91,9 +91,8 @@ function updateRequest(cardId) {
                     Swal.fire({
                         icon: 'success',
                         title: 'Updated!',
-                        text: 'Your card status has been successfully updated.',
-                        timer: 2000,
-                        showConfirmButton: false
+                        text: response.message || 'Your card status has been successfully updated.',
+                        showConfirmButton: true
                     }).then(() => {
                         window.location.reload();
                     });
@@ -102,7 +101,8 @@ function updateRequest(cardId) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Error!',
-                        text: xhr.responseJSON?.message || 'Failed to cancel the request.',
+                        text: xhr.responseJSON?.message || 'Failed to verify.',
+                        showConfirmButton: true,
                     });
                 }
             });
